@@ -35,11 +35,11 @@ public class TransferRouteServiceImpl implements TransferRouteService {
         return getRoute(availableTransfers, dp, maxWeight);
     }
 
-    private List<List<Integer>> initialDP(int n, int m){
+    private List<List<Integer>> initialDP(int numTransfers, int maxWeightLimit){
         List<List<Integer>> dp = new ArrayList<>();
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < numTransfers; i++) {
             dp.add(new ArrayList<>());
-            for (int j = 0; j < m; j++) {
+            for (int j = 0; j < maxWeightLimit; j++) {
                 dp.get(i).add(0);
             }
         }
