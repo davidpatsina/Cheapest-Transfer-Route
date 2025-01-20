@@ -15,8 +15,11 @@ mvn clean install
 ```
 This command will compile the code, run tests, and package
 
-To run the project buy Maven run the command
+### Running the Services
 
+#### Be sure that port 8081 isn't already in use before running.
+
+To run the project buy Maven run the command
 ```bash
 mvn mvn spring-boot:run 
 ```
