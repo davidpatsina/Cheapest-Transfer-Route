@@ -13,5 +13,5 @@ import java.util.List;
 public class CalculatedRoute {
     List<Transfer> transfers;
     int totalCost;
-    int totalWight;
+    int totalWeight;
 }
