@@ -28,6 +28,39 @@ or you can run a jar file. To run the jar file navigate to directory called "tar
 java -jar CheapestTransferRoute-0.0.1-SNAPSHOT.jar
 ```
 
-After running the services, you can access the Swagger UI to interact with the API documentation and test the endpoints.
+### Example CURL requests
 
-The Swagger UI is available at: http://localhost:8081/swagger-ui/index.html
+```bash
+curl -X GET "http://localhost:8081/api/route" \
+  -H "Content-Type: application/json" \
+  -H "User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.2" \
+  -H "Accept-Encoding: br, deflate, gzip, x-gzip" \
+  -H "Accept: */*" \
+  -d '{
+    "maxWeight": 15,
+    "availableTransfers": [
+      {
+        "weight": 5,
+        "cost": 10
+      },
+      {
+        "weight": 10,
+        "cost": 20
+      },
+      {
+        "weight": 3,
+        "cost": 5
+      },
+      {
+        "weight": 8,
+        "cost": 15
+      }
+    ]
+  }'
+```
+and response will be:
+
+
+```bash
+{"totalWeight":15,"totalCost":30,"selectedTransfers":[{"weight":10,"cost":20},{"weight":5,"cost":10}]}
+```

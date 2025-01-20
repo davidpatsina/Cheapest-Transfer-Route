@@ -24,7 +24,7 @@ public class RouteController {
     private TransferRouteService transferRouteService;
 
     @GetMapping
-    public ResponseEntity<?> getRoute(@RequestBody GetRouteInput input) {
+    public ResponseEntity<GetRouteOutput> getRoute(@RequestBody GetRouteInput input) {
         int maxWeight = input.getMaxWeight();
         List<Transfer> transferList = input.getAvailableTransfers().stream().map(
                 transferDTO -> Transfer.builder()
