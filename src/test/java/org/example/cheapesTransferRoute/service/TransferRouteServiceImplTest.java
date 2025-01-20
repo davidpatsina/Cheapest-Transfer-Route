@@ -115,4 +115,37 @@ public class TransferRouteServiceImplTest {
         assertTrue(result.getTransfers().contains(transfer1));
         assertTrue(result.getTransfers().contains(transfer2));
     }
+
+    @Test
+    public void whenInputIsValid1_thenReturnCalculatedRoute() {
+        int maxWeight = 10;
+        List<Transfer> transferList = new ArrayList<>();
+        Transfer transfer1 = Transfer.builder()
+                .weight(2)
+                .cost(3)
+                .build();
+        transferList.add(transfer1);
+        Transfer transfer2 = Transfer.builder()
+                .weight(3)
+                .cost(4)
+                .build();
+        transferList.add(transfer2);
+        Transfer transfer3 = Transfer.builder()
+                .weight(4)
+                .cost(5)
+                .build();
+        transferList.add(transfer3);
+        Transfer transfer4 = Transfer.builder()
+                .weight(5)
+                .cost(6)
+                .build();
+        transferList.add(transfer4);
+        CalculatedRoute result = transferRouteService.calculateRoute(maxWeight, transferList);
+        assertTrue(result.getTransfers().size() == 3);
+        assertEquals(13, result.getTotalCost());
+        assertEquals(10, result.getTotalWeight());
+        assertTrue(result.getTransfers().contains(transfer1));
+        assertTrue(result.getTransfers().contains(transfer2));
+        assertTrue(result.getTransfers().contains(transfer4));
+    }
 }
