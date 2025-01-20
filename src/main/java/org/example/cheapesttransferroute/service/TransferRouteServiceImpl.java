@@ -1,8 +1,8 @@
-package org.example.cheapesTransferRoute.service;
+package org.example.cheapesttransferroute.service;
 
 import lombok.NonNull;
-import org.example.cheapesTransferRoute.service.model.CalculatedRoute;
-import org.example.cheapesTransferRoute.service.model.Transfer;
+import org.example.cheapesttransferroute.service.model.CalculatedRoute;
+import org.example.cheapesttransferroute.service.model.Transfer;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,11 +15,12 @@ public class TransferRouteServiceImpl implements TransferRouteService {
 
     @Override
     public CalculatedRoute calculateRoute(int maxWeight, @NonNull List<Transfer> availableTransfers) {
-        ArrayList<ArrayList<Integer>> dp = initialDP(availableTransfers.size() + 1, maxWeight +1);
+        List<List<Integer>> dp = initialDP(availableTransfers.size() + 1, maxWeight +1);
         for (int i = 1; i < availableTransfers.size() + 1; i++) {
             for (int currentWeightLimit = 0; currentWeightLimit < maxWeight + 1; currentWeightLimit++) {
-                int currentWeight = availableTransfers.get(i-1).getWeight();
-                int currentCost = availableTransfers.get(i-1).getCost();
+                Transfer currentTransfer = availableTransfers.get(i-1);
+                int currentWeight = currentTransfer.getWeight();
+                int currentCost = currentTransfer.getCost();
                 if (currentWeight <= currentWeightLimit) {
                     int option1 = dp.get(i-1).get(currentWeightLimit);
                     int option2 = (currentWeightLimit - currentWeight) >= 0 ? (currentCost + dp.get(i-1).get(currentWeightLimit - currentWeight)): 0;
@@ -34,8 +35,8 @@ public class TransferRouteServiceImpl implements TransferRouteService {
         return getRoute(availableTransfers, dp, maxWeight);
     }
 
-    private ArrayList<ArrayList<Integer>> initialDP(int n, int m){
-        ArrayList<ArrayList<Integer>> dp = new ArrayList<>();
+    private List<List<Integer>> initialDP(int n, int m){
+        List<List<Integer>> dp = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             dp.add(new ArrayList<>());
             for (int j = 0; j < m; j++) {
@@ -45,17 +46,17 @@ public class TransferRouteServiceImpl implements TransferRouteService {
         return dp;
     }
 
-    private CalculatedRoute getRoute(List<Transfer> availableTransfers, ArrayList<ArrayList<Integer>> dp, int weightLimit){
+    private CalculatedRoute getRoute(List<Transfer> availableTransfers, List<List<Integer>> dp, int weightLimit){
         CalculatedRoute calculatedRoute;
         List<Transfer> route = new ArrayList<>();
-        int totalCost = 0;
+        int totalCost = dp.get(availableTransfers.size()).get(weightLimit);
         int totalWeight = 0;
         for (int i = availableTransfers.size() ; i >= 1; i--) {
             if (dp.get(i).get(weightLimit) !=  dp.get(i-1).get(weightLimit)) {
-                route.add(availableTransfers.get(i-1));
-                totalCost += availableTransfers.get(i-1).getCost();
-                totalWeight += availableTransfers.get(i-1).getWeight();
-                weightLimit -= availableTransfers.get(i-1).getWeight();
+                Transfer transfer = availableTransfers.get(i-1);
+                route.add(transfer);
+                totalWeight += transfer.getWeight();
+                weightLimit -= transfer.getWeight();
             }
         }
 

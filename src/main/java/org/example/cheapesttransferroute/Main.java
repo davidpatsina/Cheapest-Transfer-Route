@@ -1,4 +1,4 @@
-package org.example.cheapesTransferRoute;
+package org.example.cheapesttransferroute;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

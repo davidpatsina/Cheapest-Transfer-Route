@@ -1,10 +1,10 @@
-package org.example.cheapesTransferRoute.controller.model;
+package org.example.cheapesttransferroute.controller.model;
 
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Data;
 import lombok.experimental.FieldDefaults;
-import org.example.cheapesTransferRoute.controller.model.dto.TransferDTO;
+import org.example.cheapesttransferroute.controller.model.dto.TransferDTO;
 
 import java.util.List;
 

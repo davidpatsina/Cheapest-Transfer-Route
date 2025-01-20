@@ -1,11 +1,11 @@
-package org.example.cheapesTransferRoute.controller;
+package org.example.cheapesttransferroute.controller;
 
-import org.example.cheapesTransferRoute.controller.model.GetRouteInput;
-import org.example.cheapesTransferRoute.controller.model.GetRouteOutput;
-import org.example.cheapesTransferRoute.controller.model.dto.TransferDTO;
-import org.example.cheapesTransferRoute.service.TransferRouteService;
-import org.example.cheapesTransferRoute.service.model.CalculatedRoute;
-import org.example.cheapesTransferRoute.service.model.Transfer;
+import org.example.cheapesttransferroute.controller.model.GetRouteInput;
+import org.example.cheapesttransferroute.controller.model.GetRouteOutput;
+import org.example.cheapesttransferroute.controller.model.dto.TransferDTO;
+import org.example.cheapesttransferroute.service.TransferRouteService;
+import org.example.cheapesttransferroute.service.model.CalculatedRoute;
+import org.example.cheapesttransferroute.service.model.Transfer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

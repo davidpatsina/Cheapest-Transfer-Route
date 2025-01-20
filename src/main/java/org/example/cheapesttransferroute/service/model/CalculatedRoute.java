@@ -1,4 +1,4 @@
-package org.example.cheapesTransferRoute.service.model;
+package org.example.cheapesttransferroute.service.model;
 
 import lombok.AccessLevel;
 import lombok.Builder;

@@ -1,7 +1,7 @@
-package org.example.cheapesTransferRoute.service;
+package org.example.cheapesttransferroute.service;
 
-import org.example.cheapesTransferRoute.service.model.CalculatedRoute;
-import org.example.cheapesTransferRoute.service.model.Transfer;
+import org.example.cheapesttransferroute.service.model.CalculatedRoute;
+import org.example.cheapesttransferroute.service.model.Transfer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

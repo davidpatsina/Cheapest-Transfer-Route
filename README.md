@@ -21,7 +21,7 @@ This command will compile the code, run tests, and package
 
 To run the project buy Maven run the command
 ```bash
-mvn mvn spring-boot:run 
+mvn spring-boot:run 
 ```
 or you can run a jar file. To run the jar file navigate to directory called "target" from root directory of the project and run:
 ```bash
@@ -33,8 +33,6 @@ java -jar CheapestTransferRoute-0.0.1-SNAPSHOT.jar
 ```bash
 curl -X GET "http://localhost:8081/api/route" \
   -H "Content-Type: application/json" \
-  -H "User-Agent: IntelliJ HTTP Client/IntelliJ IDEA 2024.1.2" \
-  -H "Accept-Encoding: br, deflate, gzip, x-gzip" \
   -H "Accept: */*" \
   -d '{
     "maxWeight": 15,

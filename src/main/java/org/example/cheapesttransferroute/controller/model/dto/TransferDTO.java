@@ -1,4 +1,4 @@
-package org.example.cheapesTransferRoute.service.model;
+package org.example.cheapesttransferroute.controller.model.dto;
 
 import lombok.AccessLevel;
 import lombok.Builder;
@@ -8,7 +8,7 @@ import lombok.experimental.FieldDefaults;
 @Data
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class Transfer {
+public class TransferDTO {
     int weight;
     int cost;
 }
